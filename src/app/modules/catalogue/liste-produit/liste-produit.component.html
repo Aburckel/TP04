@@ -1,6 +1,7 @@
 <div class="container">
   <h3>Liste des produits</h3>
-  <div class="list-group">
-    <a *ngFor="let item of produits | async"  [routerLink]='["details", item.id]' class="list-group-item list-group-item-action">{{ item.nom }}</a>
+  <div *ngFor="let item of produits | async" class="list-group">
+    <a [routerLink]='["details", item.id]' class="list-group-item list-group-item-action">{{ item.nom }}</a>
+    <button type="button" class="btn btn-primary" (click)='addpanier(item)'>Ajouter au panier</button>
   </div>
 </div>
