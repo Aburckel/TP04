@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-form',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserFormComponent implements OnInit {
 
-  id = 0;
+  userForm: FormGroup;
 
   genders = ['Male', 'Female', 'Other'];
 
@@ -16,7 +17,20 @@ export class UserFormComponent implements OnInit {
   onSubmit() {
 
   }
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) {
+      this.userForm = this.formBuilder.group({
+      nom: '',
+      prenom: '',
+      login: '',
+      password: '',
+      ville:'',
+      cp:'',
+      adresse: '',
+      email: '',
+      tel:'',
+      pays:''
+    });
+ }
 
   ngOnInit() {
   }
